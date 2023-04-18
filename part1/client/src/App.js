@@ -18,21 +18,36 @@
 //     </div>
 //   );
 // }
-const App = () => {
+
+const Header = () => {
   const course = 'Half stack application development'
+
+  return ( <h1>{course}</h1> )
+}
+
+const Content = (props) => {
+  return (
+    <>
+      <p>{props.part}</p>
+    </>
+  )
+}
+
+const App = () => {
   const part1 = 'Fundamentals of React'
-  const exercise1 = 10
   const part2 = 'Using props to pass data'
-  const exercise2 = 7
   const part3 = 'State of component'
+  
+  const exercise1 = 10
+  const exercise2 = 7
   const exercise3 = 14
 
   return (
     <div>
-      <h1>{course}</h1>
-      <p>{part1}</p>
-      <p>{part2}</p>
-      <p>{part3} {exercise3}</p>
+      <Header />
+       <Content part={part1} />
+       <Content part={part2} />
+       <Content part={part3} />
       <p>Number of exercises {exercise1 + exercise2 + exercise3}</p>
     </div>
   )
