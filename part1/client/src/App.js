@@ -28,7 +28,9 @@ const Header = () => {
 const Content = (props) => {
   return (
     <>
-      <p>{props.part}</p>
+      <p>{props[0].name}</p>
+      <p>{props[1].name}</p>
+      <p>{props[2].name}</p>
     </>
   )
 }
@@ -36,31 +38,38 @@ const Content = (props) => {
 const Total = (props) => {
   return (
     <>
-      <p>Number of exercises {props.exercise1 + props.exercise2 + props.exercise3}</p>
+      <p>Number of exercises {props[0].exercise + props[1].exercise + props[2].exercise}</p>
     </>
   )
 }
 
 
 const App = () => {
-  const part1 = 'Fundamentals of React'
-  const part2 = 'Using props to pass data'
-  const part3 = 'State of component'
-  
-  const exercise1 = 10
-  const exercise2 = 7
-  const exercise3 = 14
 
+  const parts = [
+      {
+        name: 'Fundamentals of React',
+        exercise: 10
+      },
+
+      {
+        name: 'Using props to pass data',
+        exercise: 7
+      },
+
+      {
+        name: 'State of component',
+        exercise: 14
+      }
+  ]
+  
   return (
-    
     <div>
       <Header />
-       <Content part={part1} />
-       <Content part={part2} />
-       <Content part={part3} />
-      
-        <Total exercise1={exercise1} exercise2={exercise2} exercise3={exercise3} />
+      <Content {...parts} />
+      <Total {...parts} />
     </div>
   )
 }
+
 export default App;
