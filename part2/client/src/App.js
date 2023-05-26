@@ -1,7 +1,6 @@
-import Course from './components/Course'
+import Course from "./components/Course";
 
 const App = () => {
-  
   const courses = [
     {
       name: 'Half Stack application development',
@@ -48,8 +47,8 @@ const App = () => {
   ]
 
   return (
-    <> 
-      {courses.map(current_course => <Course key={current_course.id} course={current_course} />)}
+    <>
+      {courses.map(course => <Course key={course.id} course={course} />)}
     </>
   )
 }
